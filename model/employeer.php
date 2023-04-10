@@ -135,6 +135,15 @@ class Employeer {
         }
     }
 
+    public function getAvgAge(){
+        $db                     = new db();
+        $avg                 = $db->query('SELECT AVG(age) as avg_age FROM employees');
+        $db->close();
+        return $avg['avg_age'];
+    }
+
+    
+
     
 }
 ?>
