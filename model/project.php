@@ -1,4 +1,5 @@
 <?php
+include_once 'db.php';
 class Project {
     public $id;
     public $id_employee;

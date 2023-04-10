@@ -158,9 +158,18 @@ class Employeer {
 
     public function getAllJobs(){
         $db                     = new db();
-        $jobs                   = $db->query('SELECT DISTINCT job FROM employees');
+        // distinct so it doesn't get repeated jobs
+        $jobs                   = $db->query('SELECT DISTINCT job FROM employees')->fetchAll();
         $db->close();
         return $jobs;
+    }
+
+    // I would put this method on Project class
+    public function getFinishedPro(){
+        $db                     = new db();
+        $projects               = $db->query("SELECT * FROM projects WHERE status = 'finished' AND YEAR(delivery_date) = YEAR(CURDATE())")->fetchAll();
+        $db->close();
+        return $projects;
     }
 
     
