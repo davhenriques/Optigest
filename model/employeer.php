@@ -172,6 +172,18 @@ class Employeer {
         return $projects;
     }
 
-
+    // I would put this method on Project class
+    public function getOpennedPro($startDate, $endDate){
+        $db                     = new db();
+        $projects               = $db->query("SELECT e.name as employee_name, p.id, p.description, p.value, p.delivery_date, ? - delivery_date AS daysToDeliver
+        FROM projects 
+        INNER JOIN employees e ON e.id = p.id_employee 
+        WHERE status = 'open' AND 
+        delivery_date BETWEEN ? AND ?
+        GROUP BY e.name
+        ORDER BY daysToDeliver DESC", array($endDate, $startDate, $endDate))->fetchAll();
+        $db->close();
+        return $projects;
+    }
 }
 ?>
