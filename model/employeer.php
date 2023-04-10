@@ -135,6 +135,7 @@ class Employeer {
         }
     }
 
+    // Get average employee's Age
     public function getAvgAge(){
         $db                     = new db();
         $avg                    = $db->query('SELECT AVG(age) as avg_age FROM employees');
@@ -142,6 +143,7 @@ class Employeer {
         return $avg['avg_age'];
     }
 
+    // incremente Salary of employee by given percentage
     public function upgradeSalary($percent){
         $decimal = $percent / 100;
 
@@ -156,6 +158,7 @@ class Employeer {
         }
     }
 
+    // get all distinct jobs from employees
     public function getAllJobs(){
         $db                     = new db();
         // distinct so it doesn't get repeated jobs
