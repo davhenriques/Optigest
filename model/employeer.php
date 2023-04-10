@@ -137,7 +137,7 @@ class Employeer {
 
     public function getAvgAge(){
         $db                     = new db();
-        $avg                 = $db->query('SELECT AVG(age) as avg_age FROM employees');
+        $avg                    = $db->query('SELECT AVG(age) as avg_age FROM employees');
         $db->close();
         return $avg['avg_age'];
     }
@@ -154,6 +154,13 @@ class Employeer {
         }else{
             return FALSE;
         }
+    }
+
+    public function getAllJobs(){
+        $db                     = new db();
+        $jobs                   = $db->query('SELECT DISTINCT job FROM employees');
+        $db->close();
+        return $jobs;
     }
 
     
