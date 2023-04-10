@@ -142,7 +142,19 @@ class Employeer {
         return $avg['avg_age'];
     }
 
-    
+    public function upgradeSalary($percent){
+        $decimal = $percent / 100;
+
+        $db                     = new db();
+        $insert                 = $db->query('UPDATE employees SET salary=salary*(1+?) where id=?', $decimal, $this->id);
+        $db->close();
+        
+        if ($insert->affectedRows() > 0){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
 
     
 }
