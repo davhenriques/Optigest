@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Inserir Funcionário</title>
+</head>
+<body>
+	<h1>Inserir Funcionário</h1>
+	<form method="post" action="../controller/employeer.php">
+		<label for="name">Nome:</label>
+		<input type="text" name="name" required><br>
+		<label for="age">Idade:</label>
+		<input type="number" name="age" required><br>
+		<label for="job">Cargo:</label>
+		<input type="text" name="job" required><br>
+		<label for="salary">Salário:</label>
+		<input type="number" name="salary" step="0.01" required><br>
+		<label for="admission_date">Data de admissão:</label>
+		<input type="date" name="admission_date" required><br>
+		<input type="submit" value="Criar">
+	</form>
+</body>
+</html>
