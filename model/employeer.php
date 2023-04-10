@@ -167,11 +167,11 @@ class Employeer {
     // I would put this method on Project class
     public function getFinishedPro(){
         $db                     = new db();
-        $projects               = $db->query("SELECT * FROM projects WHERE status = 'finished' AND YEAR(delivery_date) = YEAR(CURDATE())")->fetchAll();
+        $projects               = $db->query("SELECT * FROM projects WHERE status = 'finished' AND YEAR(delivery_date) = YEAR(CURDATE()) ORDER BY values DESC")->fetchAll();
         $db->close();
         return $projects;
     }
 
-    
+
 }
 ?>
